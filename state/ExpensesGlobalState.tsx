@@ -1,18 +1,21 @@
 import { create } from "zustand";
-import { Category, Expenses, Expense } from "../models/Expenses";
+import slugify from "slugify";
+import { Category, Expense, Expenses } from "../src/models/Expenses";
 
 interface ExpenseState {
   expenses: Expenses;
-  addExpense: (expense: Expense) => void;
+  addExpense: (expense: Omit<Expense, "slug">) => void;
   removeExpense: (id: string) => void;
 }
 
-export const useExpenseStore = create<ExpenseState>((set) => ({
+const useExpenseStore = create<ExpenseState>((set) => ({
   expenses: { items: [] },
   addExpense: (expense) =>
-    set((state) => ({
-      expenses: { items: [...state.expenses.items, expense] },
-    })),
+    set((state) => {
+      const slug = slugify(expense.description, { lower: true });
+      const newExpense: Expense = { ...expense, slug };
+      return { expenses: { items: [...state.expenses.items, newExpense] } };
+    }),
   removeExpense: (id) =>
     set((state) => ({
       expenses: {
