@@ -8,10 +8,6 @@ export default function RootLayout() {
         options={{ headerShown: true, title: "My Expenses" }}
       />
       <Stack.Screen
-        name="categories"
-        options={{ headerShown: true, title: "Categories" }}
-      />
-      <Stack.Screen
         name="expenses"
         options={{ headerShown: true, title: "Expense Details" }}
       />
