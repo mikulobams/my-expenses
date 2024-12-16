@@ -1,4 +1,4 @@
-enum Category {
+export enum Category {
   Food,
   Health,
   School,
@@ -6,16 +6,15 @@ enum Category {
   Shopping,
 }
 
-type Expense = {
+export type Expense = {
   id: string;
   date: Date;
   description: string;
   category: Category;
   price: number;
+  slug: string;
 };
 
-type Expenses = {
+export type Expenses = {
   items: Expense[];
 };
-
-export default Expenses;
