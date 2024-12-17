@@ -4,7 +4,7 @@ const sampleExpenses: Expenses = {
   items: [
     {
       id: "1",
-      date: new Date("2024-12-01"),
+      date: new Date("2024-12-01T08:30:42"),
       description: "Grocery shopping at Tesco",
       category: Category.Food,
       price: 45.99,
@@ -12,7 +12,7 @@ const sampleExpenses: Expenses = {
     },
     {
       id: "2",
-      date: new Date("2024-12-02"),
+      date: new Date("2024-12-02T15:45"),
       description: "Doctor visit",
       category: Category.Health,
       price: 80.0,
@@ -20,7 +20,7 @@ const sampleExpenses: Expenses = {
     },
     {
       id: "3",
-      date: new Date("2024-12-03"),
+      date: new Date("2024-12-03T21:21:16"),
       description: "School supplies for kids",
       category: Category.School,
       price: 25.5,
@@ -28,7 +28,7 @@ const sampleExpenses: Expenses = {
     },
     {
       id: "4",
-      date: new Date("2024-12-04"),
+      date: new Date("2024-12-04T23:45:21"),
       description: "Utility bill payment",
       category: Category.Bills,
       price: 120.0,
@@ -36,7 +36,7 @@ const sampleExpenses: Expenses = {
     },
     {
       id: "5",
-      date: new Date("2024-12-05"),
+      date: new Date("2024-12-05T22:34"),
       description: "Online shopping at Amazon",
       category: Category.Shopping,
       price: 75.0,

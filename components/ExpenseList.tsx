@@ -18,6 +18,19 @@ const ExpenseList = () => {
     );
   };
 
+  if (!items) {
+    return (
+      <SafeAreaView>
+        <View>
+          <Text>
+            You have no current expenses. Please click{" "}
+            <Link href="../app/(tabs)/addExpense.tsx">Add Expense</Link>
+          </Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView>
       <View>
