@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
+import ExpenseList from "../../components/ExpenseList";
 
 const Home = () => {
   return (
     <View>
-      <Text>Home</Text>
+      <ExpenseList />
     </View>
   );
 };

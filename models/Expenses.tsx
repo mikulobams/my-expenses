@@ -1,9 +1,9 @@
 export enum Category {
-  Food,
-  Health,
-  School,
-  Bills,
-  Shopping,
+  Food = "FOOD",
+  Health = "HEALTH",
+  School = "SCHOOL",
+  Bills = "BILLS",
+  Shopping = "SHOPPING",
 }
 
 export type Expense = {

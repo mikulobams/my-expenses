@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import slugify from "slugify";
-import { Category, Expense, Expenses } from "../src/models/Expenses";
+import { Category, Expense, Expenses } from "../models/Expenses";
+import sampleExpenses from "../assets/data/SampleExpenses";
 
 interface ExpenseState {
   expenses: Expenses;
@@ -9,7 +10,7 @@ interface ExpenseState {
 }
 
 const useExpenseStore = create<ExpenseState>((set) => ({
-  expenses: { items: [] },
+  expenses: { items: sampleExpenses.items },
   addExpense: (expense) =>
     set((state) => {
       const slug = slugify(expense.description, { lower: true });
@@ -23,3 +24,5 @@ const useExpenseStore = create<ExpenseState>((set) => ({
       },
     })),
 }));
+
+export default useExpenseStore;
