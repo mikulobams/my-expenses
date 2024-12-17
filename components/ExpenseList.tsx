@@ -1,5 +1,4 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import useExpenseStore from "../state/ExpensesGlobalState";
 import { Expense } from "../models/Expenses";
 import { Link } from "expo-router";

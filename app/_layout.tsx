@@ -13,6 +13,7 @@ export default function RootLayout() {
         name="total"
         options={{ headerShown: false, title: "Total" }}
       />
+      <Stack.Screen name="+not-found" />
     </Stack>
   );
 }
