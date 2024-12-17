@@ -6,7 +6,7 @@ const TabsLayout = () => {
   return (
     <Tabs>
       <Tabs.Screen
-        name={"index"}
+        name={"(home)"}
         options={{
           headerShown: true,
           title: "My Expenses",
