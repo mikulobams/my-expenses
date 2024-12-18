@@ -8,7 +8,7 @@ const TabsLayout = () => {
       <Tabs.Screen
         name={"(home)"}
         options={{
-          headerShown: true,
+          headerShown: false,
           title: "My Expenses",
           tabBarIcon: ({ focused, color, size }) => {
             return (

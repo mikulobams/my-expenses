@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import ExpenseList from "../../../components/ExpenseList";
 import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Home = () => {
   return (
-    <View>
+    <SafeAreaView>
       <StatusBar style="dark" hidden={false} animated={true} />
       <ExpenseList />
-    </View>
+    </SafeAreaView>
   );
 };
 
