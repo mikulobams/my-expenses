@@ -1,10 +1,18 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import useExpenseStore from "../state/ExpensesGlobalState";
 import { Expense } from "../models/Expenses";
 import { Link } from "expo-router";
 
 function ExpenseList() {
   const items = useExpenseStore((state) => state.expenses.items);
+  const deleteExpense = useExpenseStore((state) => state.removeExpense);
   /**
    *
    * @param param0
@@ -17,10 +25,13 @@ function ExpenseList() {
           <Text style={styles.text}>Category: {item.category}</Text>
           <Text>Cost in GBP: {item.price}</Text>
           <Text>Date: {item.date.toString()}</Text>
+          <Button title="Delete" onPress={() => deleteExpense(item.id)} />
         </View>
       </Link>
     );
   };
+
+  const total = items.reduce((tot, item) => tot + item.price, 0);
 
   if (items.length == 0) {
     return (
@@ -49,13 +60,16 @@ function ExpenseList() {
   }
 
   return (
-    <View>
-      <FlatList
-        data={items}
-        keyExtractor={(item) => item.id}
-        renderItem={renderItem}
-      />
-    </View>
+    <FlatList
+      data={items}
+      keyExtractor={(item) => item.id}
+      renderItem={renderItem}
+      ListFooterComponent={
+        <View style={styles.footer}>
+          <Text style={styles.totalText}>Total: £{total}</Text>
+        </View>
+      }
+    />
   );
 }
 
@@ -86,5 +100,19 @@ const styles = StyleSheet.create({
   text: {
     color: "black",
     fontWeight: "bold",
+  },
+
+  footer: {
+    padding: 20,
+    alignItems: "center",
+  },
+
+  totalText: {
+    padding: 20,
+    fontWeight: "900",
+    color: "white",
+    backgroundColor: "red",
+    fontSize: 24,
+    borderRadius: 20,
   },
 });

@@ -9,10 +9,6 @@ export default function RootLayout() {
         name="expenses"
         options={{ headerShown: true, title: "Expense Details" }}
       />
-      <Stack.Screen
-        name="total"
-        options={{ headerShown: false, title: "Total" }}
-      />
     </Stack>
   );
 }
