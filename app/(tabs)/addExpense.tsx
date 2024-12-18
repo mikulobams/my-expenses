@@ -10,7 +10,7 @@ const AddExpenseScreen = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState<Category>(Category.Food);
-  const [date, setDate] = useState<Date | undefined>(undefined);
+  const [date, setDate] = useState<Date | undefined>(new Date());
 
   const handleSubmit = () => {
     if (!description || !price || !category || !date) return;
@@ -25,7 +25,6 @@ const AddExpenseScreen = () => {
     setDescription("");
     setPrice("");
     setCategory(Category.Food);
-    setDate(undefined);
   };
 
   return (
@@ -52,12 +51,7 @@ const AddExpenseScreen = () => {
           <Picker.Item key={cat} label={cat} value={cat} />
         ))}
       </Picker>
-      <Text style={styles.label}>Date:</Text>
-      <TextInput
-        style={styles.input}
-        value={date ? date.toISOString().substring(0, 10) : ""}
-        onChangeText={(value) => setDate(new Date(value))}
-      />
+
       <Button title="Add Expense" onPress={handleSubmit} />
     </View>
   );
