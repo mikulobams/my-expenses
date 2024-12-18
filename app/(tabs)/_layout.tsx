@@ -9,7 +9,7 @@ const TabsLayout = () => {
         name={"(home)"}
         options={{
           headerShown: false,
-          title: "My Expenses",
+          title: "Expenses",
           tabBarIcon: ({ focused, color, size }) => {
             return (
               <MaterialIcons name="attach-money" size={24} color={color} />
