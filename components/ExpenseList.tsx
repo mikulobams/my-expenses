@@ -9,15 +9,17 @@ import {
 import useExpenseStore from "../state/ExpensesGlobalState";
 import { Expense } from "../models/Expenses";
 import { Link } from "expo-router";
+import { useRouter } from "expo-router";
 
-function ExpenseList() {
+/**
+ * ExpenseList is a component that displays a list of expenses.
+ * @returns ExpenseList component
+ */
+export default function ExpenseList() {
   const items = useExpenseStore((state) => state.expenses.items);
   const deleteExpense = useExpenseStore((state) => state.removeExpense);
-  /**
-   *
-   * @param param0
-   * @returns
-   */
+  const router = useRouter();
+
   const renderItem = ({ item }: { item: Expense }) => {
     return (
       <Link href={`/expenses/${item.slug}`} style={styles.expense}>
@@ -25,7 +27,10 @@ function ExpenseList() {
           <Text style={styles.text}>Category: {item.category}</Text>
           <Text>Cost in GBP: {item.price}</Text>
           <Text>Date: {item.date.toString()}</Text>
-          <Button title="Delete" onPress={() => deleteExpense(item.id)} />
+          <View>
+            <Button title="Delete" onPress={() => deleteExpense(item.id)} />
+            <Button title="Details" onPress={() => deleteExpense(item.id)} />
+          </View>
         </View>
       </Link>
     );
@@ -35,18 +40,6 @@ function ExpenseList() {
 
   if (items.length == 0) {
     return (
-      // <SafeAreaView>
-      //   <View>
-      //     <Text>
-      //       You have no current expenses. Please click{" "}
-      //       <Link href="/addExpense" style={styles.link}>
-      //         Add Expense
-      //       </Link>{" "}
-      //       to add an expense.
-      //     </Text>
-      //   </View>
-      // </SafeAreaView>
-
       <View style={styles.container}>
         <Text>
           You have no current expenses. Please click{" "}
@@ -72,8 +65,6 @@ function ExpenseList() {
     />
   );
 }
-
-export default ExpenseList;
 
 const styles = StyleSheet.create({
   expense: {

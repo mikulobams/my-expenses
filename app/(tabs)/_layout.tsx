@@ -2,6 +2,10 @@ import { StyleSheet, Text, View } from "react-native";
 import { Tabs } from "expo-router";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
+/**
+ *
+ * @returns Tabs layout for the app
+ */
 const TabsLayout = () => {
   return (
     <Tabs>

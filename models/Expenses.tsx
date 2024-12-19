@@ -1,3 +1,10 @@
+/**
+ * This file contains the types for Category, Expense and Expenses.
+ */
+
+/**
+ * Category is an enum that represents the different categories of expenses.
+ */
 export enum Category {
   Food = "FOOD",
   Health = "HEALTH",
@@ -6,6 +13,9 @@ export enum Category {
   Shopping = "SHOPPING",
 }
 
+/**
+ * Expense is an interface that represents the structure of an expense.
+ */
 export type Expense = {
   id: string;
   date: Date;
@@ -15,6 +25,9 @@ export type Expense = {
   slug: string;
 };
 
+/**
+ * Expenses is an interface that represents the structure of a list of expenses.
+ */
 export type Expenses = {
   items: Expense[];
 };

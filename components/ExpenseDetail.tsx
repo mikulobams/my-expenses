@@ -1,6 +1,10 @@
 import { Expense } from "../models/Expenses";
 import { StyleSheet, View, Text } from "react-native";
 
+/**
+ * ExpenseDetailScreen is a component that displays the details of an expense.
+ * @returns ExpenseDetailScreen component
+ */
 export default function ExpenseDetailScreen({
   id,
   category,
