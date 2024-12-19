@@ -28,16 +28,6 @@ const TabsLayout = () => {
           },
         }}
       />
-      <Tabs.Screen
-        name={"categories"}
-        options={{
-          headerShown: true,
-          title: "Categories",
-          tabBarIcon: ({ focused, color, size }) => {
-            return <MaterialIcons name="category" size={24} color={color} />;
-          },
-        }}
-      />
     </Tabs>
   );
 };
