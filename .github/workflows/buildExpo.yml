@@ -56,8 +56,8 @@ jobs:
       - name: Install EAS CLI
         run: npm install -g eas-cli
 
-      - name: Build Android app
-        run: npx eas build --platform android --non-interactive
+      - name: EAS INIT
+        run: npx eas init
 
-      - name: Build iOS app
-        run: npx eas build --platform ios --non-interactive
+      - name: Build on EAS
+        run: npx eas build --platform all --non-interactive --no-wait
